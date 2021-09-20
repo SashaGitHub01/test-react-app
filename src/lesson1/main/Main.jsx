@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
-import Aside from "./Aside";
+import Aside from "../aside/Aside";
 import Content from "../content/Content";
+import './main.scss';
 
 class Main extends Component {
    constructor(props) {

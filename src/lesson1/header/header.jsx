@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
-
+import './header.scss';
 
 class Header extends Component {
    constructor(props) {

@@ -1,0 +1,15 @@
+.header {
+   background-color: rgb(226, 247, 255);
+   padding: 10px 0;
+}
+.header__row {
+   display: flex;
+   justify-content: space-between;
+}
+.header__logo {
+   flex: 0 1 50px;
+}
+
+.header__logo img {
+   max-width: 100%;
+}
