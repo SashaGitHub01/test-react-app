@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 const Profile = (props) => {
    return (
       <div className="profile">
-
+         
       </div>
    )
 }
