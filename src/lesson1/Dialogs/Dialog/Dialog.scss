@@ -1,0 +1,26 @@
+.dialogs__item {
+   display: flex;
+   padding: 20px 35px;
+   border: 1px solid rgb(28, 221, 228);
+   border-radius: 50px;
+   cursor: pointer;
+   margin-bottom: 25px;
+}
+.dialog-item__img {
+   flex: 0 1 50px;
+   height: 50px;
+   border-radius: 50%;
+   display: flex;
+}
+
+.dialog-item__img img {
+   border-radius: 50%;
+   max-width: 100%;
+}
+
+.dialog-item__name {
+   font-size: 18px;
+   font-weight: 500;
+   color: rgb(75, 75, 75);
+   align-self: center;
+}

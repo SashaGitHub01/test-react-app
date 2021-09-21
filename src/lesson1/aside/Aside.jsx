@@ -1,29 +1,37 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
+import { Link, NavLink } from 'react-router-dom';
+
 import './aside.scss';
 
 let nav = [
    {
-      name: 'Home',
-      to: '#',
+      name: 'My Profile',
+      to: '/profile',
+      className: 'menu-list__item',
+   },
+
+   {
+      name: 'Dialogs',
+      to: '/dialogs',
       className: 'menu-list__item',
    },
 
    {
       name: 'News',
-      to: '#',
+      to: '/news',
       className: 'menu-list__item',
    },
 
    {
       name: 'Contact',
-      to: '#',
+      to: '/contact',
       className: 'menu-list__item',
    },
 
    {
       name: 'About',
-      to: '#',
+      to: '/about',
       className: 'menu-list__item',
    },
 ]
@@ -40,7 +48,7 @@ class Aside extends Component {
             <nav className='aside__menu menu'>
                <ul className="menu__list menu-list">
                   {nav.map(({ name, to, className }) => (
-                     <li key={name + to} className={className}><a href={to}>{name}</a></li>)
+                     <li key={name + to} className={className}><NavLink to={to}>{name}</NavLink></li>)
                   )}
                </ul>
             </nav>
