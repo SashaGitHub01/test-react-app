@@ -1,5 +1,5 @@
 .aside {
-   padding: 20px 25px 0px 0px;
+   padding: 20px 20px 0px 0px;
 }
 .aside__menu {
 }
@@ -26,6 +26,7 @@
    color: #000;
    text-decoration: none;
    position: relative;
+   display: block;
 }
 
 .menu-list__item {

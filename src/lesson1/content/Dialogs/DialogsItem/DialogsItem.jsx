@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
-import './Dialog.scss';
+import { Link } from 'react-router-dom';
+import './DialogsItem.scss';
 
 
-const Dialog = ({ name, surname, avatar }) => {
+const DialogsItem = ({ name, surname, avatar, id }) => {
    return (
-      <div className="dialogs__item dialog-item">
+      <Link className='dialogs__item dialog-item' to={`dialogs/${id}`}>
          <div className="dialog-item__img">
             <img src={avatar ? avatar : 'images/logo.svg'} alt="avatar" />
          </div>
          <div className="dialog-item__name">{`${name} ${surname}`}</div>
-      </div>
+      </Link>
    )
 }
 
 
-export default Dialog;
+export default DialogsItem;

@@ -15,10 +15,12 @@ class App extends Component {
    }
 
    render() {
+      let { posts, dialogs } = this.props;
+
       return (
          <Page>
             <Header />
-            <Main />
+            <Main posts={posts} dialogs={dialogs} />
          </Page>
       )
    }

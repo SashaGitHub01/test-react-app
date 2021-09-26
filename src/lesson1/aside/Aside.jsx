@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 import './aside.scss';
 
@@ -37,24 +37,19 @@ let nav = [
 ]
 
 
-class Aside extends Component {
-   constructor(props) {
-      super(props);
-   }
+const Aside = (props) => {
 
-   render() {
-      return (
-         <aside className="aside">
-            <nav className='aside__menu menu'>
-               <ul className="menu__list menu-list">
-                  {nav.map(({ name, to, className }) => (
-                     <li key={name + to} className={className}><NavLink to={to}>{name}</NavLink></li>)
-                  )}
-               </ul>
-            </nav>
-         </aside>
-      )
-   }
+   return (
+      <aside className="aside">
+         <nav className='aside__menu menu'>
+            <ul className="menu__list menu-list">
+               {nav.map(({ name, to, className }) => (
+                  <li key={name + to} className={className}><NavLink to={to}>{name}</NavLink></li>)
+               )}
+            </ul>
+         </nav>
+      </aside>
+   )
 }
 
 export default Aside;

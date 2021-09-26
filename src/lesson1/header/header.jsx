@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
 import './header.scss';
+import mainLogo from './logo.svg';
 
 class Header extends Component {
    constructor(props) {
@@ -13,7 +14,7 @@ class Header extends Component {
             <div className="container">
                <div className="header__row">
                   <div className="header__logo">
-                     <img src="logo192.png" alt="logo" />
+                     <img src={mainLogo} alt="logo" />
                   </div>
                </div>
             </div>

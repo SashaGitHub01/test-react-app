@@ -19,6 +19,10 @@ a:active {
    outline: none;
 }
 
+a {
+   text-decoration: none;
+}
+
 nav,
 footer,
 header,
@@ -37,6 +41,7 @@ body {
    -moz-text-size-adjust: 100%;
    -webkit-text-size-adjust: 100%;
 }
+
 body {
    font-family: "Arial", sans-serif;
    min-height: 100%;
@@ -49,7 +54,7 @@ body {
 }
 
 .container {
-   max-width: 1130px;
+   max-width: 1180px;
    padding: 0 15px;
    margin: 0 auto;
 }

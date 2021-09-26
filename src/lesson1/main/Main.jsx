@@ -6,23 +6,17 @@ import Aside from "../aside/Aside";
 import Content from "../content/Content";
 import './main.scss';
 
-class Main extends Component {
-   constructor(props) {
-      super(props);
-   }
-
-   render() {
-      return (
-         <main className="main">
-            <div className="container">
-               <div className="main__row">
-                  <Aside />
-                  <Content />
-               </div>
+const Main = ({ posts, dialogs }) => {
+   return (
+      <main className="main">
+         <div className="container">
+            <div className="main__row">
+               <Aside />
+               <Content posts={posts} dialogs={dialogs} />
             </div>
-         </main>
-      )
-   }
+         </div>
+      </main>
+   )
 }
 
 export default Main;
