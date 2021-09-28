@@ -13,24 +13,7 @@
    display: flex;
 }
 .my-posts-form__textarea {
-   resize: none;
-   border: 1px solid rgb(107, 107, 107);
    flex: 1 1 auto;
-   font-size: 12px;
-   font-family: "Arial", sans-serif;
-   line-height: 20px;
-   padding: 5px;
-}
-
-.btn {
-   display: block;
-   background-color: rgb(7, 165, 170);
-   min-width: 100px;
-   padding: 7px 15px;
-   cursor: pointer;
-   color: #fff;
-   font-size: 16px;
-   font-weight: 700;
 }
 
 .my-posts-form__button {

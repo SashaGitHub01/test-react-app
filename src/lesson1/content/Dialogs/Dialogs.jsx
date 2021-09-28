@@ -6,10 +6,16 @@ import DialogsItem from "./DialogsItem/DialogsItem";
 
 
 
-const Dialogs = ({ dialogs }) => {
+const Dialogs = ({ dialogs, dispatch }) => {
 
    let yourDialogs = dialogs.map(({ name, surname, id, avatar }) => (
-      <DialogsItem name={name} id={id} surname={surname} avatar={avatar} key={id} />
+      <DialogsItem
+         dispatch={dispatch}
+         name={name}
+         id={id}
+         surname={surname}
+         avatar={avatar}
+         key={id} />
    ));
 
 

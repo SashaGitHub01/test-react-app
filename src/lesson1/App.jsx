@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import ReactDOM from 'react-dom';
 import propTypes from 'prop-types';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -9,21 +9,13 @@ import Main from "./main/Main";
 
 
 
-class App extends Component {
-   constructor(props) {
-      super(props);
-   }
-
-   render() {
-      let { posts, dialogs } = this.props;
-
-      return (
-         <Page>
-            <Header />
-            <Main posts={posts} dialogs={dialogs} />
-         </Page>
-      )
-   }
+const App = ({ state, dispatch }) => {
+   return (
+      <Page>
+         <Header />
+         <Main state={state} dispatch={dispatch} />
+      </Page>
+   )
 }
 
 export default App;

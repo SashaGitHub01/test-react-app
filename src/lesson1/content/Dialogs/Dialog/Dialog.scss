@@ -1,0 +1,47 @@
+.messages__row {
+   display: flex;
+   position: relative;
+   flex-direction: column;
+   padding: 25px 0;
+}
+
+.messages__row::before,
+.messages__row::after {
+   content: "";
+   position: absolute;
+   width: 100%;
+   height: 1px;
+   left: 0;
+   background-color: rgb(204, 204, 204);
+}
+
+.messages__row::after {
+   bottom: 0;
+}
+
+.messages__row::before {
+   top: 0;
+}
+
+.dialog-m__title {
+   margin-bottom: 15px;
+}
+.message-form {
+   display: flex;
+   margin: 15px 0px 0px -25px;
+}
+.message-form__textarea {
+   flex: 1 1 auto;
+   display: flex;
+}
+
+.message-form__element {
+   padding: 0px 0px 0px 25px;
+}
+
+.message-form__textarea textarea {
+   flex: 1 1 auto;
+}
+
+.message-form__button {
+}
