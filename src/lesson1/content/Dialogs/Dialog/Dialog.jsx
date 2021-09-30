@@ -4,18 +4,19 @@ import MyButton from "../../../../UI/MyButton/MyButton";
 import MyTextarea from "../../../../UI/MyTextarea/MyTextarea";
 import Message from "../Message/Message";
 import './Dialog.scss';
+import { addMessageActionCreator, updateMessageActionCreator } from "../../../../actions/actionCreator";
 
 
 const Dialog = ({ state, dispatch }) => {
 
    const onChange = (e) => {
-      dispatch({ type: 'UPDATE-MESSAGE-CONTENT', newText: e.target.value });
+      dispatch(updateMessageActionCreator(e.target.value));
    }
 
    const onSubmit = (e) => {
       e.preventDefault();
 
-      dispatch({ type: 'ADD-MESSAGE' });
+      dispatch(addMessageActionCreator());
    }
 
    return (

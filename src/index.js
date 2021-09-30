@@ -4,14 +4,15 @@ import './index.scss';
 import reportWebVitals from './reportWebVitals';
 import App from './lesson1/App';
 import { BrowserRouter } from 'react-router-dom'
+//import { Provider } from 'react-redux';
 
-import { store } from './state/state';
+import store from './redux/store';
 
 
 const renderPage = (state) => {
    ReactDOM.render(
       <BrowserRouter>
-         <App state={store.state}
+         <App state={store.getState()}
             dispatch={store.dispatch.bind(store)}
          />
       </BrowserRouter>,
@@ -19,9 +20,9 @@ const renderPage = (state) => {
    );
 }
 
-renderPage(store.state);
+renderPage(store.getState());
 
-store.subscribe(renderPage);
+store.subscribe(() => renderPage(store.getState()));
 
 reportWebVitals();
 

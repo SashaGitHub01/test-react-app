@@ -15,7 +15,7 @@ const AppRoute = ({ state, dispatch }) => {
          />
          <Route exact path='/dialogs' render={() => <Dialogs dialogs={state.dialogsPage.dialogsList} />}
          />
-         <Route path='/dialogs/:id' render={() => <Dialog state={state.dialogsPage}
+         <Route exact path='/dialogs/:id' render={() => <Dialog state={state.dialogsPage}
             dispatch={dispatch}
          />}
          />

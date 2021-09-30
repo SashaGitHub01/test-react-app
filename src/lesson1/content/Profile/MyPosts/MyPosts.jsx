@@ -1,20 +1,21 @@
-import React, { useRef } from "react";
+import React from "react";
 import './MyPosts.scss';
 import Post from './Post/Post';
 
 import MyTextarea from '../../../../UI/MyTextarea/MyTextarea';
 import MyButton from '../../../../UI/MyButton/MyButton';
+import { addPostActionCreator, updatePostActionCreator } from '../../../../actions/actionCreator';
 
 const MyPosts = ({ state, dispatch }) => {
 
    const submit = (e) => {
       e.preventDefault();
 
-      dispatch({ type: 'ADD-POST' });
+      dispatch(addPostActionCreator());
    }
 
    const onChange = (e) => {
-      dispatch({ type: 'UPDATE-POST-CONTENT', newText: e.target.value });
+      dispatch(updatePostActionCreator(e.target.value));
    }
 
    return (

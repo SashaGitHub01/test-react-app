@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import ReactDOM from 'react-dom';
+import React from "react";
 
 import MyPosts from "./MyPosts/MyPosts";
 import './Profile.scss';

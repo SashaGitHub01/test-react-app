@@ -1,16 +1,14 @@
-import React, { Component } from "react";
-import ReactDOM from 'react-dom';
+import React from "react";
 import './Dialogs.scss';
 
 import DialogsItem from "./DialogsItem/DialogsItem";
 
 
 
-const Dialogs = ({ dialogs, dispatch }) => {
+const Dialogs = ({ dialogs }) => {
 
    let yourDialogs = dialogs.map(({ name, surname, id, avatar }) => (
       <DialogsItem
-         dispatch={dispatch}
          name={name}
          id={id}
          surname={surname}

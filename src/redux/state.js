@@ -1,3 +1,6 @@
+import { profilePageReducer } from "../reducers/profilePageReducer";
+import { dialogsPageReducer } from "../reducers/dialogsPageReducer";
+
 
 export const store = {
    _state: {
@@ -62,45 +65,11 @@ export const store = {
 
    _callSubscriber() { },
 
-   _addPost() {
-      let newPost = {
-         id: '5' + Date.now(),
-         name: 'Jake Yip',
-         avatar: 'https://steamuserimages-a.akamaihd.net/ugc/793116473828215611/6B7BC238A031EE48EC9CDC44AC369EF30536F881/?imw=512&amp;imh=512&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=true',
-         body: this._state.profilePage.newPostContent,
-      }
-
-      this._state.profilePage.posts.push(newPost);
-      this._callSubscriber(this._state);
-      this._state.profilePage.newPostContent = '';
-   },
-
-   _updatePostContent(text) {
-      this._state.profilePage.newPostContent = text;
-
-      this._callSubscriber(this._state);
-   },
-
-   _addMessage() {
-      let newMessage = { id: 5 + Date.now(), body: this._state.dialogsPage.newMessageContent }
-
-      this._state.dialogsPage.messages.push(newMessage);
-
-      this._callSubscriber(this._state);
-      this._state.dialogsPage.newMessageContent = '';
-   },
-
-   _updateMessageContent(text) {
-      this._state.dialogsPage.newMessageContent = text;
-
-      this._callSubscriber(this._state);
-   },
-
    dispatch(action) {
-      if (action.type == 'ADD-POST') this._addPost();
-      if (action.type == 'UPDATE-POST-CONTENT') this._updatePostContent(action.newText);
-      if (action.type == 'ADD-MESSAGE') this._addMessage();
-      if (action.type == 'UPDATE-MESSAGE-CONTENT') this._updateMessageContent(action.newText);
+      this._state.dialogsPage = dialogsPageReducer(this._state.dialogsPage, action);
+      this._state.profilePage = profilePageReducer(this._state.profilePage, action);
+
+      this._callSubscriber(this._state);
    },
 
    subscribe(callback) {
