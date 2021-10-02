@@ -2,3 +2,5 @@ export const ADD_POST = 'ADD_POST';
 export const UPDATE_POST_CONTENT = 'UPDATE_POST_CONTENT';
 export const ADD_MESSAGE = 'ADD_MESSAGE';
 export const UPDATE_MESSAGE_CONTENT = 'UPDATE_MESSAGE_CONTENT';
+export const TOGGLE_FOLLOW = 'TOGGLE_FOLLOW';
+export const SET_USERS = 'SET_USERS';

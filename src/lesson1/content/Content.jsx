@@ -6,8 +6,7 @@ import AppRoute from "../AppRoute/AppRoute";
 const Content = ({ state, dispatch }) => {
    return (
       <section className="content">
-         <AppRoute state={state}
-            dispatch={dispatch} />
+         <AppRoute />
       </section>
    )
 }

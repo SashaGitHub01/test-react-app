@@ -4,7 +4,6 @@ import './Dialogs.scss';
 import DialogsItem from "./DialogsItem/DialogsItem";
 
 
-
 const Dialogs = ({ dialogs }) => {
 
    let yourDialogs = dialogs.map(({ name, surname, id, avatar }) => (

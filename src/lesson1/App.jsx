@@ -6,11 +6,11 @@ import Main from "./main/Main";
 
 
 
-const App = ({ state, dispatch }) => {
+const App = () => {
    return (
       <Page>
          <Header />
-         <Main state={state} dispatch={dispatch} />
+         <Main />
       </Page>
    )
 }

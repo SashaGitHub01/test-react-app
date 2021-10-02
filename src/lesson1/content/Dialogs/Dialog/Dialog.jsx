@@ -4,19 +4,18 @@ import MyButton from "../../../../UI/MyButton/MyButton";
 import MyTextarea from "../../../../UI/MyTextarea/MyTextarea";
 import Message from "../Message/Message";
 import './Dialog.scss';
-import { addMessageActionCreator, updateMessageActionCreator } from "../../../../actions/actionCreator";
 
 
-const Dialog = ({ state, dispatch }) => {
+const Dialog = ({ messages, value, addMessage, updateMessageContent }) => {
 
    const onChange = (e) => {
-      dispatch(updateMessageActionCreator(e.target.value));
+      updateMessageContent(e.target.value);
    }
 
    const onSubmit = (e) => {
       e.preventDefault();
 
-      dispatch(addMessageActionCreator());
+      addMessage();
    }
 
    return (
@@ -24,11 +23,11 @@ const Dialog = ({ state, dispatch }) => {
          <div className="dialog-m__column">
             <div className="dialog-m__title">Name</div>
             <div className="dialog-m__messages messages__row">
-               {state.messages.map(({ body, id }) => <Message key={id} body={body} />)}
+               {messages.map(({ body, id }) => <Message key={id} body={body} />)}
             </div>
             <form className="dialog-m__form message-form" onSubmit={onSubmit}>
                <div className="message-form__element message-form__textarea">
-                  <MyTextarea value={state.newMessageContent}
+                  <MyTextarea value={value}
                      onChange={onChange}
                      rows='2'
                      placeholder='Введите сообщение'

@@ -6,16 +6,16 @@ import MyTextarea from '../../../../UI/MyTextarea/MyTextarea';
 import MyButton from '../../../../UI/MyButton/MyButton';
 import { addPostActionCreator, updatePostActionCreator } from '../../../../actions/actionCreator';
 
-const MyPosts = ({ state, dispatch }) => {
+const MyPosts = ({ posts, value, postContentUpdate, addPost }) => {
 
    const submit = (e) => {
       e.preventDefault();
 
-      dispatch(addPostActionCreator());
+      addPost();
    }
 
    const onChange = (e) => {
-      dispatch(updatePostActionCreator(e.target.value));
+      postContentUpdate(e.target.value);
    }
 
    return (
@@ -25,7 +25,7 @@ const MyPosts = ({ state, dispatch }) => {
             <MyTextarea rows='2'
                className="my-posts-form__textarea"
                placeholder='Enter your post...'
-               value={state.newPostContent}
+               value={value}
                onChange={onChange}
             />
             <div className="my-posts-form__button">
@@ -33,7 +33,7 @@ const MyPosts = ({ state, dispatch }) => {
             </div>
          </form>
          <div className="my-posts__container">
-            {state.posts.map(({ id, name, body, avatar }) => (
+            {posts.map(({ id, name, body, avatar }) => (
                <Post key={id}
                   name={name}
                   body={body}

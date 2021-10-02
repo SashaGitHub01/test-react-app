@@ -24,8 +24,8 @@ let nav = [
    },
 
    {
-      name: 'Contact',
-      to: '/contact',
+      name: 'Users',
+      to: '/users',
       className: 'menu-list__item',
    },
 

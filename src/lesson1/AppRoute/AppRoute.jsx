@@ -2,23 +2,18 @@ import React from "react";
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Profile from "../content/Profile/Profile";
-import Dialogs from "../content/Dialogs/Dialogs";
-import Dialog from "../content/Dialogs/Dialog/Dialog";
+import DialogsContainer from "../../containers/DialogsContainer";
+import DialogContainer from "../../containers/DialogContainer";
 import Error from "../content/Error/Error";
+import UsersPage from "../content/UsersPage/UsersPage";
 
-const AppRoute = ({ state, dispatch }) => {
+const AppRoute = () => {
    return (
       <Switch>
-         <Route exact path='/profile' render={() => <Profile state={state.profilePage}
-            dispatch={dispatch}
-         />}
-         />
-         <Route exact path='/dialogs' render={() => <Dialogs dialogs={state.dialogsPage.dialogsList} />}
-         />
-         <Route exact path='/dialogs/:id' render={() => <Dialog state={state.dialogsPage}
-            dispatch={dispatch}
-         />}
-         />
+         <Route exact path='/profile' render={() => <Profile />} />
+         <Route exact path='/dialogs' render={() => <DialogsContainer />} />
+         <Route exact path='/dialogs/:id' render={() => <DialogContainer />} />
+         <Route exact path='/users' render={() => <UsersPage />} />
          <Route exact path='/'>
             <Redirect to='/profile' />
          </Route>
