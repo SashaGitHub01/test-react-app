@@ -1,24 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
 import './UsersList.scss';
 
 import UserItemContainer from "../../../../containers/UserItemContainer";
+import Loader from "../../../Loader/Loader";
 
-const UsersList = ({ users }) => {
+const UsersList = ({ users, isLoading }) => {
+
    return (
-      <div className="userspage__list userspage-list">
-         {
-            users.map(({ fullName, description, id, location, followed, avatar }) => (
-               <UserItemContainer key={id}
-                  id={id}
-                  description={description}
-                  name={fullName}
-                  location={location}
-                  avatar={avatar}
-                  followed={followed}
-               />
-            ))
-         }
-      </div>
+      isLoading
+         ? <Loader />
+         : <div className="userspage__list userspage-list">
+            {
+               users.map(({ name, status, id, location, followed, photos }) => (
+                  <UserItemContainer key={id}
+                     id={id}
+                     description={status}
+                     name={name}
+                     location={location}
+                     avatar={photos.small}
+                     followed={followed}
+                  />
+               ))
+            }
+         </div>
    )
 }
 

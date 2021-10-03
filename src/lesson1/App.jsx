@@ -1,15 +1,15 @@
 import React from "react";
 
 import Page from "./page/page";
-import Header from "./header/header";
 import Main from "./main/Main";
+import HeaderContainer from "../containers/HeaderContainer";
 
 
 
 const App = () => {
    return (
       <Page>
-         <Header />
+         <HeaderContainer />
          <Main />
       </Page>
    )

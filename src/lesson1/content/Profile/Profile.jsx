@@ -1,13 +1,15 @@
 import React from "react";
-
-import MyPostsContainer from '../../../containers/MyPostsContainer';
 import './Profile.scss';
+
+import ProfileInfoContainer from "../../../containers/ProfileInfoContainer";
+import MyPostsContainer from '../../../containers/MyPostsContainer';
 
 
 const Profile = () => {
    return (
       <div className="profile">
          <div className="profile__row">
+            <ProfileInfoContainer />
             <MyPostsContainer />
          </div>
       </div>

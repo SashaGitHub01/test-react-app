@@ -1,4 +1,4 @@
-import { ADD_POST, UPDATE_POST_CONTENT } from "../constants/constants";
+import { ADD_POST, UPDATE_POST_CONTENT, SET_USER_PROFILE, SET_CURRENT_PROFILE } from "../constants/constants";
 
 let initialState = {
    posts: [
@@ -24,9 +24,10 @@ let initialState = {
 
    ],
    newPostContent: '',
+   profile: null,
 };
 
-export const profilePageReducer = (state = initialState, { type, newText }) => {
+export const profilePageReducer = (state = initialState, { type, newText, profile, profileId }) => {
    switch (type) {
       case ADD_POST:
          let newPost = {
@@ -41,8 +42,21 @@ export const profilePageReducer = (state = initialState, { type, newText }) => {
       case UPDATE_POST_CONTENT:
          return { ...state, newPostContent: newText };
 
+      case SET_USER_PROFILE:
+         return {
+            ...state,
+            profile: profile,
+         };
+
+      case SET_CURRENT_PROFILE:
+         return {
+            ...state,
+            currentProfileId: profileId,
+         }
+
       default:
          return state;
    }
 }
+
 

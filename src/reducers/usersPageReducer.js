@@ -1,38 +1,26 @@
-import { TOGGLE_FOLLOW, SET_USERS } from "../constants/constants";
+import {
+   TOGGLE_FOLLOW, SET_USERS, SET_TOTAL_COUNT, SET_CURRENT_PAGE,
+   TOGGLE_IS_LOADING,
+}
+   from "../constants/constants";
+
 
 let initialState = {
-   users: [
-      {
-         id: 1,
-         fullName: 'Alex Merser',
-         description: 'Hello world!',
-         location: { country: 'USA', city: 'Florida' },
-         followed: true,
-         avatar: 'https://pbs.twimg.com/media/DOnGMOUX4AAZzS1.jpg'
-      },
-
-      {
-         id: 2,
-         fullName: 'Rick Holl',
-         description: 'Hello, my name is Rick!',
-         location: { country: 'Poland', city: 'Krakow' },
-         followed: false,
-         avatar: 'https://pbs.twimg.com/media/DOnGMOUX4AAZzS1.jpg'
-      },
-
-      {
-         id: 3,
-         fullName: 'John Chick',
-         description: 'Hello, my name is John!',
-         location: { country: 'USA', city: 'Atlanta' },
-         followed: false,
-         avatar: 'https://pbs.twimg.com/media/DOnGMOUX4AAZzS1.jpg'
-      },
-
-   ],
+   users: [],
+   totalCount: 0,
+   limit: 10,
+   currentPage: 1,
 }
 
-export const usersPageReducer = (state = initialState, { type, userId, newUsers }) => {
+
+export const usersPageReducer = (state = initialState, {
+   type,
+   userId,
+   newUsers,
+   count,
+   currentPage,
+   newLoadingStatus,
+}) => {
    switch (type) {
       case TOGGLE_FOLLOW:
          return {
@@ -47,7 +35,25 @@ export const usersPageReducer = (state = initialState, { type, userId, newUsers 
       case SET_USERS:
          return {
             ...state,
-            users: [...state.users, ...newUsers],
+            users: [...newUsers],
+         };
+
+      case SET_TOTAL_COUNT:
+         return {
+            ...state,
+            totalCount: count,
+         }
+
+      case SET_CURRENT_PAGE:
+         return {
+            ...state,
+            currentPage: currentPage,
+         };
+
+      case TOGGLE_IS_LOADING:
+         return {
+            ...state,
+            isLoading: newLoadingStatus,
          }
 
       default:

@@ -1,6 +1,6 @@
 import React from "react";
 
-import Aside from "../aside/Aside";
+import AsideContainer from '../../containers/AsideContainer';
 import Content from "../content/Content";
 import './main.scss';
 
@@ -9,7 +9,7 @@ const Main = () => {
       <main className="main">
          <div className="container">
             <div className="main__row">
-               <Aside />
+               <AsideContainer />
                <Content />
             </div>
          </div>

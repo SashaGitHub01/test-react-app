@@ -1,18 +1,25 @@
 import React from "react";
+import { Link, useHistory } from "react-router-dom";
 import './UserItem.scss';
 
 import MyButton from '../../../../UI/MyButton/MyButton';
+import defaultAvatar from '../../../../defaults/defaultAvatar.jpg';
+
 
 
 const UserItem = ({ name, location, description, followed, avatar, id, onToggleFollow }) => {
+   let history = useHistory();
+
    return (
       <div className="userspage-list__item user-item">
          <div className="user-item__row">
-            <div className="user-item__avatar">
-               <img src={avatar} alt="avatar" />
-            </div>
+            <Link className="user-item__avatar" to={`/profile/${id}`}>
+               <img src={avatar ? avatar : defaultAvatar} alt="avatar" />
+            </Link>
             <div className="user-item__info">
-               <div className="user-item__name">{name}</div>
+               <div className="user-item__name" onClick={() => history.push(`/profile/${id}`)}>
+                  {name}
+               </div>
                <div className="user-item__location">
                   <span>{location.country}, </span>
                   <span>{location.city}</span>
@@ -35,3 +42,10 @@ const UserItem = ({ name, location, description, followed, avatar, id, onToggleF
 }
 
 export default UserItem;
+
+UserItem.defaultProps = {
+   location: {
+      country: 'USA',
+      city: 'Boston'
+   },
+}

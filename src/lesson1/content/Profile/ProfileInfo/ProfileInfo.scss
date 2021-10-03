@@ -1,0 +1,91 @@
+.profile-info {
+   padding: 20px 10px 60px 10px;
+}
+.profile-info__row {
+   display: flex;
+}
+.profile-info__avatar {
+   flex: 0 1 200px;
+   border: 2px solid rgb(141, 141, 141);
+}
+
+.profile-info__avatar img {
+   max-width: 100%;
+   text-align: center;
+   display: block;
+}
+
+.main-info {
+   padding: 0px 0px 0px 35px;
+   flex: 1 1 auto;
+}
+.main-info__column {
+}
+.main-info__name {
+   font-size: 26px;
+   font-weight: 500;
+   line-height: 36px;
+}
+.main-info__about {
+   line-height: 21px;
+   color: rgb(104, 104, 104);
+   font-weight: 300;
+}
+
+.main-info__job {
+   padding: 25px 0;
+   line-height: 28px;
+   color: rgb(92, 92, 92);
+   font-size: 16px;
+}
+
+.main-info__job span {
+   color: rgb(0, 0, 0);
+   font-size: 18px;
+}
+
+.main-info__job-status {
+   position: relative;
+}
+
+.main-info__job-status {
+   color: rgb(233, 80, 80);
+   text-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
+}
+
+.main-info__job-status.open {
+   color: rgb(31, 177, 68);
+}
+
+.main-info__job-description {
+}
+
+.profile-info__socials {
+   font-size: 25px;
+}
+
+.profile-info__socials a {
+   margin-right: 15px;
+}
+
+.profile-info__socials a:last-child {
+   margin: 0;
+}
+
+.fa-github {
+}
+.fa-vk {
+   color: rgb(22, 127, 175);
+}
+.fa-facebook-f {
+   color: rgb(3, 61, 168);
+}
+.fa-twitter {
+   color: rgb(47, 203, 241);
+}
+.fa-instagram {
+   color: rgb(210, 90, 214);
+}
+.fa-youtube {
+   color: rgb(155, 48, 48);
+}

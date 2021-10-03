@@ -5,8 +5,9 @@ import MyButton from '../../../UI/MyButton/MyButton';
 import MyInput from "../../../UI/MyInput/MyInput";
 import MyTitle from '../../../UI/MyTitle/MyTitle';
 import UsersListContainer from "../../../containers/UsersListContainer";
+import PaginationContainer from "../../../containers/PaginationContainer";
 
-const UsersPage = (props) => {
+const UsersPage = () => {
    return (
       <div className="userspage">
          <div className="userspage__column">
@@ -22,6 +23,7 @@ const UsersPage = (props) => {
                   <MyTitle>Пользователи</MyTitle>
                </div>
                <UsersListContainer />
+               <PaginationContainer />
                <div className="userpage__showmore-btn">
                   <MyButton>Показать еще</MyButton>
                </div>

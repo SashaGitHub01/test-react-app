@@ -10,12 +10,12 @@ import UsersPage from "../content/UsersPage/UsersPage";
 const AppRoute = () => {
    return (
       <Switch>
-         <Route exact path='/profile' render={() => <Profile />} />
+         <Route exact path='/profile/:userId' render={() => <Profile />} />
          <Route exact path='/dialogs' render={() => <DialogsContainer />} />
          <Route exact path='/dialogs/:id' render={() => <DialogContainer />} />
          <Route exact path='/users' render={() => <UsersPage />} />
          <Route exact path='/'>
-            <Redirect to='/profile' />
+            <Redirect to='/users' />
          </Route>
          <Route component={Error} />
       </Switch>
