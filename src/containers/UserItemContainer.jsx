@@ -1,13 +1,20 @@
 import { connect } from "react-redux";
 import UserItem from "../lesson1/content/UsersPage/UserItem/UserItem";
-import { toggleFollowActionCreator } from '../actions/actionCreator';
+import { follow, unfollow } from '../thunks/thunkCreator'
 
 let dispatchToProps = {
-   onToggleFollow: toggleFollowActionCreator,
+   follow,
+   unfollow,
+}
+
+let mapStateToProps = state => {
+   return {
+      followingProgress: state.usersPage.followingProgress,
+   }
 }
 
 const UserItemContainer = connect(
-   null,
+   mapStateToProps,
    dispatchToProps,
 )(UserItem);
 

@@ -40,17 +40,17 @@ const ProfileInfo = ({ profile }) => {
                </div>
                <div className="profile-info__socials">
                   {profile.contacts.github
-                     && <a href={profile.contacts.github}><i class="fab fa-github"></i></a>}
+                     && <a href={profile.contacts.github}><i className="fab fa-github"></i></a>}
                   {profile.contacts.vk
-                     && <a href={profile.contacts.vk}><i class="fab fa-vk"></i></a>}
+                     && <a href={profile.contacts.vk}><i className="fab fa-vk"></i></a>}
                   {profile.contacts.facebook
-                     && <a href={profile.contacts.facebook}><i class="fab fa-facebook-f"></i></a>}
+                     && <a href={profile.contacts.facebook}><i className="fab fa-facebook-f"></i></a>}
                   {profile.contacts.twitter
-                     && <a href={profile.contacts.twitter}><i class="fab fa-twitter"></i></a>}
+                     && <a href={profile.contacts.twitter}><i className="fab fa-twitter"></i></a>}
                   {profile.contacts.instagram
-                     && <a href={profile.contacts.instagram}><i class="fab fa-instagram"></i></a>}
+                     && <a href={profile.contacts.instagram}><i className="fab fa-instagram"></i></a>}
                   {profile.contacts.youtube
-                     && <a href={profile.contacts.youtube}><i class="fab fa-youtube"></i></a>}
+                     && <a href={profile.contacts.youtube}><i className="fab fa-youtube"></i></a>}
                </div>
             </div>
          </div>

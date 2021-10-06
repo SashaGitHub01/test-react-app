@@ -1,21 +1,12 @@
 import Header from "../lesson1/header/header";
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import axios from "axios";
-import { setAuthDataAtionCreator } from '../actions/actionCreator';
+import { getAuth } from "../thunks/thunkCreator";
 
-const HeaderContainer = ({ setAuthData, ...other }) => {
+const HeaderContainer = ({ getAuth, ...other }) => {
 
    useEffect(() => {
-      axios.get('https://social-network.samuraijs.com/api/1.0/auth/me', {
-         withCredentials: true,
-      })
-         .then(response => {
-            if (response.data.resultCode === 0) {
-               console.log(response);
-               setAuthData(response.data.data)
-            }
-         });
+      getAuth();
    }, []);
 
    return (
@@ -32,7 +23,7 @@ let mapStateToProps = (state) => {
 }
 
 let dispatchToProps = {
-   setAuthData: setAuthDataAtionCreator,
+   getAuth,
 }
 
 export default connect(

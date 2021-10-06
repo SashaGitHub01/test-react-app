@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
-import axios from "axios";
 import { connect } from "react-redux";
 import { useRouteMatch } from "react-router";
 
 import ProfileInfo from "../lesson1/content/Profile/ProfileInfo/ProfileInfo";
-import { setUserProfileAtionCreator } from "../actions/actionCreator";
+import { getUserProfile } from "../thunks/thunkCreator";
+import withAuthRedirect from "../HOC/withAuthRedirect";
+import { compose } from "redux";
 
-const ProfileInfoContainer = ({ setUserProfile, ...other }) => {
+const ProfileInfoContainer = ({ getUserProfile, isAuth, ...other }) => {
    let match = useRouteMatch();
 
    useEffect(() => {
-      axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${match.params.userId}`)
-         .then(response => setUserProfile(response.data))
-   }, []);
+      getUserProfile(match.params.userId);
+   }, [match.params.userId]);
 
    return (
       <ProfileInfo {...other} />
@@ -26,10 +26,13 @@ let mapStateToProps = (state) => {
 }
 
 let dispatchToProps = {
-   setUserProfile: setUserProfileAtionCreator,
+   getUserProfile,
 }
 
-export default connect(
-   mapStateToProps,
-   dispatchToProps,
+export default compose(
+   connect(
+      mapStateToProps,
+      dispatchToProps,
+   ),
+   withAuthRedirect
 )(ProfileInfoContainer);

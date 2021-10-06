@@ -7,8 +7,27 @@ import defaultAvatar from '../../../../defaults/defaultAvatar.jpg';
 
 
 
-const UserItem = ({ name, location, description, followed, avatar, id, onToggleFollow }) => {
+const UserItem = ({
+   name,
+   location,
+   description,
+   followed,
+   avatar,
+   id,
+   follow,
+   unfollow,
+   followingProgress,
+}) => {
+
    let history = useHistory();
+
+   const setFollow = () => {
+      follow(id)
+   };
+
+   const setUnfollow = () => {
+      unfollow(id)
+   };
 
    return (
       <div className="userspage-list__item user-item">
@@ -27,13 +46,20 @@ const UserItem = ({ name, location, description, followed, avatar, id, onToggleF
                <div className="user-item__description">{description}</div>
             </div>
             <div className="user-item__buttons">
-               <MyButton onClick={() => onToggleFollow(id)}
-                  className={followed ? 'user-item__button active' : 'user-item__button'}>
-                  {followed
-                     ? 'Отписаться'
-                     : 'Подписаться'
-                  }
-               </MyButton>
+               {followed
+                  ? <MyButton className='user-item__button active'
+                     disabled={followingProgress.includes(id)}
+                     onClick={setUnfollow}
+                  >
+                     Отписаться
+                  </MyButton>
+                  : <MyButton className='user-item__button'
+                     disabled={followingProgress.includes(id)}
+                     onClick={setFollow}
+                  >
+                     Подписаться
+                  </MyButton>
+               }
                <MyButton className='user-item__button'>Написать сообщение</MyButton>
             </div>
          </div>

@@ -1,19 +1,13 @@
 import { connect } from "react-redux";
 import React, { useEffect } from "react";
-import axios from "axios";
-
 import Pagination from "../lesson1/Pagination/Pagination";
-import {
-   setTotalCountActionCreator,
-   setCurrentPageAtionCreator,
-   setUsersActionCreator
-} from '../actions/actionCreator';
+import { setCurrentPage } from '../actions/actionCreator';
+import { getNewUsersPage } from "../thunks/thunkCreator";
 
-const PaginationContainer = ({ setTotalCount, currentPage, setUsers, ...other }) => {
+const PaginationContainer = ({ currentPage, getNewUsersPage, ...other }) => {
 
    useEffect(() => {
-      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}`)
-         .then(response => setUsers(response.data.items));
+      getNewUsersPage(currentPage);
    }, [currentPage]);
 
    return (
@@ -31,9 +25,8 @@ let mapStateToProps = (state) => {
 };
 
 let dispatchToProps = {
-   setTotalCount: setTotalCountActionCreator,
-   setCurrentPage: setCurrentPageAtionCreator,
-   setUsers: setUsersActionCreator,
+   setCurrentPage: setCurrentPage,
+   getNewUsersPage,
 };
 
 export default connect(

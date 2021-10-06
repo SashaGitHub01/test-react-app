@@ -12,12 +12,12 @@ const Header = ({ isAuth, login, id }) => {
                   <img src={mainLogo} alt="logo" />
                </div>
                <div className="header__login">
-                  {isAuth
-                     ? <Link to={`/profile/${id}`}>
-                        {login}
-                     </Link>
-                     : <Link to={'/login'}>
+                  {!isAuth
+                     ? <Link to={'/login'}>
                         Login
+                     </Link>
+                     : <Link to={`/profile/${id}`}>
+                        {login}
                      </Link>}
                </div>
             </div>
