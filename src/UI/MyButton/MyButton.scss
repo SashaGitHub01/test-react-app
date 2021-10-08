@@ -8,3 +8,7 @@
    font-size: 16px;
    font-weight: 700;
 }
+
+.my-button:disabled {
+   background-color: rgba(135, 231, 235, 0.5);
+}

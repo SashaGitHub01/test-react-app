@@ -1,4 +1,5 @@
 import React from "react";
+import { Formik, Form, Field } from "formik";
 
 import MyButton from "../../../../UI/MyButton/MyButton";
 import MyTextarea from "../../../../UI/MyTextarea/MyTextarea";
@@ -6,16 +7,15 @@ import Message from "../Message/Message";
 import './Dialog.scss';
 
 
-const Dialog = ({ messages, value, addMessage, updateMessageContent }) => {
-
-   const onChange = (e) => {
-      updateMessageContent(e.target.value);
+const Dialog = ({ messages, addMessage, }) => {
+   let initialValues = {
+      messageArea: ''
    }
 
-   const onSubmit = (e) => {
-      e.preventDefault();
+   const onSubmit = (values) => {
+      if (!values.messageArea) return;
 
-      addMessage();
+      addMessage(values.messageArea);
    }
 
    return (
@@ -25,18 +25,29 @@ const Dialog = ({ messages, value, addMessage, updateMessageContent }) => {
             <div className="dialog-m__messages messages__row">
                {messages.map(({ body, id }) => <Message key={id} body={body} />)}
             </div>
-            <form className="dialog-m__form message-form" onSubmit={onSubmit}>
-               <div className="message-form__element message-form__textarea">
-                  <MyTextarea value={value}
-                     onChange={onChange}
-                     rows='2'
-                     placeholder='Введите сообщение'
-                  />
-               </div>
-               <div className="message-form__element message-form__button">
-                  <MyButton>Отправить</MyButton>
-               </div>
-            </form>
+            <Formik
+               initialValues={initialValues}
+               onSubmit={onSubmit}
+            >
+               <Form className="dialog-m__form message-form">
+                  <div className="message-form__element message-form__textarea">
+                     <Field
+                        as='textarea'
+                        component={MyTextarea}
+                        name="messageArea"
+                        rows='2'
+                        placeholder='Введите сообщение'
+                     />
+                  </div>
+                  <div className="message-form__element message-form__button">
+                     <Field
+                        children='Отправить'
+                        type='submit'
+                        component={MyButton}
+                     />
+                  </div>
+               </Form>
+            </Formik>
          </div>
       </div>
    )

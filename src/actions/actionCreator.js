@@ -1,24 +1,17 @@
 import {
-   ADD_POST, UPDATE_POST_CONTENT, ADD_MESSAGE, UPDATE_MESSAGE_CONTENT, SET_USER_PROFILE,
+   ADD_POST, ADD_MESSAGE, UPDATE_MESSAGE_CONTENT, SET_USER_PROFILE,
    TOGGLE_FOLLOW, SET_USERS, SET_TOTAL_COUNT, SET_CURRENT_PAGE, TOGGLE_IS_LOADING,
-   SET_CURRENT_PROFILE, SET_AUTH_DATA, TOGGLE_iS_FOLLOWING,
+   SET_CURRENT_PROFILE, SET_AUTH_DATA, TOGGLE_iS_FOLLOWING, SET_STATUS,
 } from "../constants/constants";
 
-export const addPost = () => (
-   { type: ADD_POST }
+export const addPost = (postText) => (
+   { type: ADD_POST, postText }
 );
 
-export const updatePost = (text) => (
-   { type: UPDATE_POST_CONTENT, newText: text }
+export const addMessage = (messageText) => (
+   { type: ADD_MESSAGE, messageText }
 );
 
-export const addMessage = () => (
-   { type: ADD_MESSAGE }
-);
-
-export const updateMessage = (text) => (
-   { type: UPDATE_MESSAGE_CONTENT, newText: text }
-);
 
 export const toggleFollow = (id) => (
    { type: TOGGLE_FOLLOW, userId: id }
@@ -55,3 +48,8 @@ export const setAuthData = ({ id, login, email }) => (
 export const toggleIsFollowing = (status, id) => (
    { type: TOGGLE_iS_FOLLOWING, isFetching: status, followId: id }
 );
+
+export const setStatus = (text) => (
+   { type: SET_STATUS, status: text }
+);
+

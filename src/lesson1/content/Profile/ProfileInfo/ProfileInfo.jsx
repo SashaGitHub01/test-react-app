@@ -3,8 +3,9 @@ import './ProfileInfo.scss';
 import ava from '../../../../defaults/defaultAvatar.jpg'
 
 import Loader from '../../../Loader/Loader';
+import Status from "./Status/Status";
 
-const ProfileInfo = ({ profile }) => {
+const ProfileInfo = ({ profile, status, updateStatus }) => {
    return (
       profile
          ? <div className="profile-info">
@@ -19,7 +20,7 @@ const ProfileInfo = ({ profile }) => {
                <div className="profile-info__main main-info">
                   <div className="main-info__column">
                      <div className="main-info__name">{profile.fullName}</div>
-                     <div className="main-info__about">{profile.aboutMe}</div>
+                     <Status status={status} updateStatus={updateStatus} />
                      <div className="main-info__job">
                         <div className={profile.lookingForAJob
                            ? "main-info__job-status open"

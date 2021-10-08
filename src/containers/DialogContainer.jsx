@@ -6,12 +6,10 @@ import { addMessage, updateMessage } from '../actions/actionCreator';
 let mapStateToProps = (state) => {
    return {
       messages: state.dialogsPage.messages,
-      value: state.dialogsPage.newMessageContent,
    }
 };
 
 let dispatchToProps = {
-   updateMessageContent: updateMessage,
    addMessage: addMessage,
 }
 

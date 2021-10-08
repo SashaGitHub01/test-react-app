@@ -1,16 +1,16 @@
 import React from "react";
 import './MyButton.scss';
 
-const MyButton = ({ children, className, ...other }) => {
+const MyButton = ({ children, className, disabled, field, form, ...other }) => {
    return (
       <button {...other}
          className={className
             ? 'my-button ' + className
-            : 'my-button'
-         }>
+            : 'my-button'}
+      >
          {children}
       </button>
    )
-}
+};
 
 export default MyButton;

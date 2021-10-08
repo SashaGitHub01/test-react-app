@@ -5,7 +5,7 @@ import AuthMeService from "../API/AuthMeService";
 import {
    toggleFollow, toggleIsFollowing, setUserProfile,
    setUsers, setTotalCount, toggleIsLoading,
-   setAuthData,
+   setAuthData, setStatus,
 } from "../actions/actionCreator";
 
 
@@ -71,4 +71,33 @@ export const getAuth = () => {
             }
          });
    }
-}
+};
+
+export const getStatus = (id) => {
+   return (dispatch) => {
+      ProfileService.getUserStatus(id)
+         .then(data => dispatch(setStatus(data)));
+   }
+};
+
+export const updateStatus = (text) => {
+   return (dispatch) => {
+      ProfileService.updateStatus(text)
+         .then(response => {
+            if (response.resultCode === 0) {
+               dispatch(setStatus(text))
+            };
+         });
+   }
+};
+
+export const signIn = (data) => {
+   return (dispatch) => {
+      AuthMeService.signIn(data)
+         .then(data => {
+            if (data.resultCode === 1) {
+               dispatch(setAuthData())
+            }
+         })
+   }
+};

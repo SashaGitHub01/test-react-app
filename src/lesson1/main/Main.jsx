@@ -7,11 +7,9 @@ import './main.scss';
 const Main = () => {
    return (
       <main className="main">
-         <div className="container">
-            <div className="main__row">
-               <AsideContainer />
-               <Content />
-            </div>
+         <div className="main__row">
+            <AsideContainer />
+            <Content />
          </div>
       </main>
    )

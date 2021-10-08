@@ -1,37 +1,46 @@
 import React from "react";
 import './MyPosts.scss';
 import Post from './Post/Post';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 
 import MyTextarea from '../../../../UI/MyTextarea/MyTextarea';
 import MyButton from '../../../../UI/MyButton/MyButton';
-import { addPostActionCreator, updatePostActionCreator } from '../../../../actions/actionCreator';
 
-const MyPosts = ({ posts, value, postContentUpdate, addPost }) => {
+const MyPosts = ({ posts, addPost }) => {
 
-   const submit = (e) => {
-      e.preventDefault();
-
-      addPost();
+   let initialValues = {
+      postArea: '',
    }
 
-   const onChange = (e) => {
-      postContentUpdate(e.target.value);
+   let onSubmit = (values) => {
+      if (!values.postArea) return;
+
+      addPost(values.postArea);
    }
 
    return (
       <section className="my-posts">
          <div className="my-posts__title section-title">My Posts</div>
-         <form className="my-posts__form my-posts-form" onSubmit={submit}>
-            <MyTextarea rows='2'
-               className="my-posts-form__textarea"
-               placeholder='Enter your post...'
-               value={value}
-               onChange={onChange}
-            />
-            <div className="my-posts-form__button">
-               <MyButton className='my-posts-form__submit btn' type="submit">Post</MyButton>
-            </div>
-         </form>
+         <Formik initialValues={initialValues}
+            onSubmit={onSubmit}
+         >
+            <Form className="my-posts__form my-posts-form">
+               <Field as='textarea'
+                  rows='2'
+                  name='postArea'
+                  className="my-posts-form__textarea"
+                  placeholder='Enter your post...'
+                  component={MyTextarea}
+               />
+               <div className="my-posts-form__button">
+                  <Field className='my-posts-form__submit btn'
+                     type="submit"
+                     component={MyButton}
+                     children='Опубликовать'
+                  />
+               </div>
+            </Form>
+         </Formik>
          <div className="my-posts__container">
             {posts.map(({ id, name, body, avatar }) => (
                <Post key={id}

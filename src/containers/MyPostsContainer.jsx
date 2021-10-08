@@ -5,12 +5,10 @@ import { addPost, updatePost } from '../actions/actionCreator';
 let mapStateToProps = state => {
    return {
       posts: state.profilePage.posts,
-      value: state.profilePage.newPostContent,
    }
 };
 
 let dispatchToProps = {
-   postContentUpdate: updatePost,
    addPost: addPost,
 }
 

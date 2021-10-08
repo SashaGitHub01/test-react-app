@@ -1,8 +1,12 @@
 .main {
    background-color: rgb(247, 247, 247);
    flex: 1 1 auto;
+   padding: 0 40px;
+   display: flex;
+   flex-direction: column;
 }
 .main__row {
    display: flex;
    position: relative;
+   flex: 1 1 auto;
 }
