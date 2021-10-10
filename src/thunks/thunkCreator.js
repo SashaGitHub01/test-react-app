@@ -5,7 +5,7 @@ import AuthMeService from "../API/AuthMeService";
 import {
    toggleFollow, toggleIsFollowing, setUserProfile,
    setUsers, setTotalCount, toggleIsLoading,
-   setAuthData, setStatus,
+   setAuthData, setStatus, setInitialized,
 } from "../actions/actionCreator";
 
 
@@ -63,13 +63,14 @@ export const getUserProfile = (id) => {
 };
 
 export const getAuth = () => {
-   return (dispatch) => {
-      AuthMeService.authMe()
-         .then(data => {
-            if (data.resultCode === 0) {
-               dispatch(setAuthData(data.data));
-            }
-         });
+   return async (dispatch) => {
+      let data = await AuthMeService.authMe();
+
+      if (data.resultCode === 0) {
+         dispatch(setAuthData(data.data));
+      }
+
+      return data;
    }
 };
 
@@ -91,13 +92,32 @@ export const updateStatus = (text) => {
    }
 };
 
-export const signIn = (data) => {
+export const login = (data) => {
    return (dispatch) => {
-      AuthMeService.signIn(data)
+      AuthMeService.login(data)
          .then(data => {
-            if (data.resultCode === 1) {
-               dispatch(setAuthData())
+            if (data.resultCode === 0) {
+               dispatch(getAuth())
             }
          })
    }
 };
+
+export const logout = () => {
+   return (dispatch) => {
+      AuthMeService.logout()
+         .then(data => {
+            if (data.resultCode === 0) {
+               dispatch(setAuthData({ id: null, login: null, email: null, isAuth: false }));
+            }
+         })
+   }
+};
+
+export const initializeApp = () => {
+   return async (dispatch) => {
+      let response = await dispatch(getAuth());
+
+      dispatch(setInitialized());
+   }
+}

@@ -15,7 +15,15 @@
    max-width: 100%;
 }
 
-.header__login {
+.header__info {
    font-size: 18px;
    text-decoration: underline;
+}
+
+.header__quit {
+   font-size: 12px;
+   margin-left: 10px;
+   background-color: transparent;
+   color: rgb(25, 231, 221);
+   cursor: pointer;
 }

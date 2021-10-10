@@ -16,7 +16,7 @@ export const authReducer = (state = initialState, { type, userData }) => {
             login: userData.login,
             email: userData.email,
             userId: userData.id,
-            isAuth: true,
+            isAuth: userData.isAuth,
          }
 
       default:

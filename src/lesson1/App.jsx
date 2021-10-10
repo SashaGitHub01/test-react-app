@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Page from "./page/page";
 import Main from "./main/Main";
 import HeaderContainer from "../containers/HeaderContainer";
+import Loader from "./Loader/Loader";
+import { connect } from "react-redux";
+import { initializeApp } from "../thunks/thunkCreator";
 
 
+const App = ({ isInitialized, initializeApp }) => {
 
-const App = () => {
+   useEffect(() => {
+      initializeApp();
+   }, []);
+
+   if (!isInitialized) return <Loader />
+
    return (
       <Page>
          <HeaderContainer />
@@ -15,4 +24,17 @@ const App = () => {
    )
 }
 
-export default App;
+const mapStateToProps = (state) => {
+   return {
+      isInitialized: state.app.initialized,
+   }
+}
+
+let dispatchToProps = {
+   initializeApp,
+}
+
+export default connect(
+   mapStateToProps,
+   dispatchToProps,
+)(App);

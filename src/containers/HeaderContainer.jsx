@@ -1,14 +1,10 @@
 import Header from "../lesson1/header/header";
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { getAuth } from "../thunks/thunkCreator";
 
-const HeaderContainer = ({ getAuth, ...other }) => {
+import { logout } from "../thunks/thunkCreator";
 
-   useEffect(() => {
-      getAuth();
-   }, []);
-
+const HeaderContainer = ({ ...other }) => {
    return (
       <Header {...other} />
    )
@@ -23,7 +19,7 @@ let mapStateToProps = (state) => {
 }
 
 let dispatchToProps = {
-   getAuth,
+   logout,
 }
 
 export default connect(

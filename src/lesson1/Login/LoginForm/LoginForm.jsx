@@ -7,7 +7,7 @@ import MyButton from '../../../UI/MyButton/MyButton';
 import MyInput from '../../../UI/MyInput/MyInput';
 import LoginError from './LoginError/LoginError';
 
-const LoginForm = ({ signIn }) => {
+const LoginForm = ({ login }) => {
 
    let validationSchema = Yup.object({
       email: Yup.string()
@@ -26,7 +26,7 @@ const LoginForm = ({ signIn }) => {
    }
 
    const onSubmit = (values) => {
-      signIn(values);
+      login(values);
    }
 
    return (

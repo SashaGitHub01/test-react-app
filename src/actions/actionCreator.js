@@ -1,7 +1,7 @@
 import {
    ADD_POST, ADD_MESSAGE, UPDATE_MESSAGE_CONTENT, SET_USER_PROFILE,
    TOGGLE_FOLLOW, SET_USERS, SET_TOTAL_COUNT, SET_CURRENT_PAGE, TOGGLE_IS_LOADING,
-   SET_CURRENT_PROFILE, SET_AUTH_DATA, TOGGLE_iS_FOLLOWING, SET_STATUS,
+   SET_CURRENT_PROFILE, SET_AUTH_DATA, TOGGLE_iS_FOLLOWING, SET_STATUS, SET_INITIALIZED,
 } from "../constants/constants";
 
 export const addPost = (postText) => (
@@ -41,8 +41,8 @@ export const setCurrentProfile = (id) => (
    { type: SET_CURRENT_PROFILE, profileId: id }
 );
 
-export const setAuthData = ({ id, login, email }) => (
-   { type: SET_AUTH_DATA, userData: { id, login, email } }
+export const setAuthData = ({ id, login, email, isAuth = true }) => (
+   { type: SET_AUTH_DATA, userData: { id, login, email, isAuth } }
 );
 
 export const toggleIsFollowing = (status, id) => (
@@ -53,3 +53,6 @@ export const setStatus = (text) => (
    { type: SET_STATUS, status: text }
 );
 
+export const setInitialized = () => (
+   { type: SET_INITIALIZED }
+);
