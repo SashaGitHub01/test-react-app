@@ -1,8 +1,8 @@
 import React from "react";
 
 import AsideContainer from '../../containers/AsideContainer';
-import Content from "../content/Content";
-import './main.scss';
+import Content from "../Content/Content";
+import './Main.scss';
 
 const Main = () => {
    return (

@@ -1,6 +1,7 @@
 import {
    ADD_POST, SET_USER_PROFILE,
    SET_CURRENT_PROFILE, SET_STATUS,
+   SET_NEW_AVATAR,
 } from "../constants/constants";
 
 let initialState = {
@@ -32,7 +33,7 @@ let initialState = {
 
 export const profilePageReducer = (state = initialState, {
    type, postText, profile,
-   profileId, status,
+   profileId, status, photos,
 }) => {
    switch (type) {
       case ADD_POST:
@@ -61,6 +62,17 @@ export const profilePageReducer = (state = initialState, {
          return {
             ...state,
             status: status,
+         };
+
+      case SET_NEW_AVATAR:
+         return {
+            ...state,
+            profile: {
+               ...state.profile,
+               photos: {
+                  ...photos,
+               }
+            },
          };
 
       default:

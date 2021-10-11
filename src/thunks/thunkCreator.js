@@ -5,7 +5,7 @@ import AuthMeService from "../API/AuthMeService";
 import {
    toggleFollow, toggleIsFollowing, setUserProfile,
    setUsers, setTotalCount, toggleIsLoading,
-   setAuthData, setStatus, setInitialized,
+   setAuthData, setStatus, setInitialized, setNewAvatar,
 } from "../actions/actionCreator";
 
 
@@ -119,5 +119,13 @@ export const initializeApp = () => {
       let response = await dispatch(getAuth());
 
       dispatch(setInitialized());
+   }
+}
+
+export const uploadAvatar = (image) => {
+   return async (dispatch) => {
+      let response = await ProfileService.uploadAvatar(image);
+      console.log(response)
+      dispatch(setNewAvatar(response.data));
    }
 }

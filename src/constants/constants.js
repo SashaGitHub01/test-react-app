@@ -12,3 +12,4 @@ export const SET_AUTH_DATA = 'SET_AUTH_DATA';
 export const TOGGLE_iS_FOLLOWING = 'TOGGLE_iS_PROGRESSING';
 export const SET_STATUS = 'SET_STATUS';
 export const SET_INITIALIZED = 'SET_INITIALIZED';
+export const SET_NEW_AVATAR = 'SET_NEW_AVATAR';

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 
-import LoginForm from "../lesson1/Login/LoginForm/LoginForm";
+import LoginForm from "../components/Login/LoginForm/LoginForm";
 import { login } from "../thunks/thunkCreator";
 import withLoginRedirect from '../HOC/withLoginRedirect';
 

@@ -1,7 +1,7 @@
 import React from "react";
 import './MyPosts.scss';
 import Post from './Post/Post';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form, } from 'formik';
 
 import MyTextarea from '../../../../UI/MyTextarea/MyTextarea';
 import MyButton from '../../../../UI/MyButton/MyButton';

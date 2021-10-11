@@ -1,4 +1,4 @@
-import Aside from "../lesson1/aside/Aside";
+import Aside from "../components/Aside/Aside";
 import React from "react";
 import { connect } from "react-redux";
 

@@ -5,7 +5,14 @@
    display: flex;
 }
 .profile-info__avatar {
+   display: flex;
    flex: 0 1 200px;
+   flex-direction: column;
+   text-align: center;
+   align-items: center;
+}
+
+.avatar__image {
    border: 2px solid rgb(141, 141, 141);
 }
 
@@ -13,6 +20,17 @@
    max-width: 100%;
    text-align: center;
    display: block;
+}
+
+.avatar-form__file {
+   position: absolute;
+   width: 0;
+}
+.avatar-form__label {
+   cursor: pointer;
+   color: rgb(3, 107, 148);
+   line-height: 28px;
+   text-decoration: underline;
 }
 
 .main-info {

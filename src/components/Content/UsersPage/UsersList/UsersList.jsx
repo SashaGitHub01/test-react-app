@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import './UsersList.scss';
 
 import UserItemContainer from "../../../../containers/UserItemContainer";

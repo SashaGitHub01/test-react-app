@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import React, { useEffect } from "react";
-import Pagination from "../lesson1/Pagination/Pagination";
+import Pagination from "../components/Pagination/Pagination";
 import { setCurrentPage } from '../actions/actionCreator';
 import { getNewUsersPage } from "../thunks/thunkCreator";
 

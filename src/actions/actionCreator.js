@@ -1,5 +1,5 @@
 import {
-   ADD_POST, ADD_MESSAGE, UPDATE_MESSAGE_CONTENT, SET_USER_PROFILE,
+   ADD_POST, ADD_MESSAGE, SET_USER_PROFILE, SET_NEW_AVATAR,
    TOGGLE_FOLLOW, SET_USERS, SET_TOTAL_COUNT, SET_CURRENT_PAGE, TOGGLE_IS_LOADING,
    SET_CURRENT_PROFILE, SET_AUTH_DATA, TOGGLE_iS_FOLLOWING, SET_STATUS, SET_INITIALIZED,
 } from "../constants/constants";
@@ -55,4 +55,8 @@ export const setStatus = (text) => (
 
 export const setInitialized = () => (
    { type: SET_INITIALIZED }
+);
+
+export const setNewAvatar = (photos) => (
+   { type: SET_NEW_AVATAR, photos }
 );

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { compose } from "redux";
-import Dialogs from "../lesson1/content/Dialogs/Dialogs";
+import Dialogs from "../components/Content/Dialogs/Dialogs";
 
 import withAuthRedirect from "../HOC/withAuthRedirect";
 

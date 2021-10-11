@@ -2,21 +2,21 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useRouteMatch } from "react-router";
 
-import ProfileInfo from "../lesson1/content/Profile/ProfileInfo/ProfileInfo";
-import { getUserProfile, getStatus, updateStatus } from "../thunks/thunkCreator";
+import ProfileInfo from "../components/Content/Profile/ProfileInfo/ProfileInfo";
+import { getUserProfile, getStatus, updateStatus, uploadAvatar } from "../thunks/thunkCreator";
 import withAuthRedirect from "../HOC/withAuthRedirect";
 import { compose } from "redux";
 
-const ProfileInfoContainer = ({ getUserProfile, getStatus, isAuth, ...other }) => {
+const ProfileInfoContainer = ({ getUserProfile, getStatus, profile, ...other }) => {
    let match = useRouteMatch();
 
    useEffect(() => {
       getUserProfile(match.params.userId);
       getStatus(match.params.userId);
-   }, [match.params.userId]);
+   }, [match.params.userId, profile]);
 
    return (
-      <ProfileInfo {...other} />
+      <ProfileInfo {...other} profile={profile} />
    )
 }
 
@@ -31,6 +31,7 @@ let dispatchToProps = {
    getUserProfile,
    getStatus,
    updateStatus,
+   uploadAvatar,
 }
 
 export default compose(

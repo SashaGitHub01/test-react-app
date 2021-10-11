@@ -15,6 +15,16 @@ class ProfileService {
       return instanse.put(`/profile/status`, { status })
          .then(response => response.data);
    }
+
+   static uploadAvatar = async (image) => {
+      let response = await instanse.put(`/profile/photo`, image, {
+         headers: {
+            'Content-Type': 'multipart/form-data'
+         }
+      });
+
+      return response.data;
+   }
 }
 
 export default ProfileService;

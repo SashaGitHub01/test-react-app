@@ -1,21 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 import './ProfileInfo.scss';
 import ava from '../../../../defaults/defaultAvatar.jpg'
+import { Form, Field, Formik } from "formik";
 
 import Loader from '../../../Loader/Loader';
 import Status from "./Status/Status";
+import MyButton from "../../../../UI/MyButton/MyButton";
 
-const ProfileInfo = ({ profile, status, updateStatus }) => {
+const ProfileInfo = ({ profile, status, updateStatus, uploadAvatar }) => {
+   let [newImage, setNewImage] = useState('');
+
+   const initialValues = {
+      avatar: '',
+   }
+
+   const onSubmit = () => {
+      let formData = new FormData();
+
+      formData.append('image', newImage);
+
+      uploadAvatar(formData);
+
+      setNewImage('');
+   }
+
+   const handleChange = (e) => {
+      setNewImage(e.target.files[0]);
+   }
+
    return (
       profile
          ? <div className="profile-info">
             <div className="profile-info__row">
-               <div className="profile-info__avatar">
-                  <img src={profile.photos.large
-                     ? profile.photos.large
-                     : ava
-                  } alt="ava"
-                  />
+               <div className="profile-info__avatar avatar">
+                  <div className="avatar__image">
+                     <img src={profile.photos.large
+                        ? profile.photos.large
+                        : ava
+                     } alt="ava"
+                     />
+                  </div>
+                  <Formik initialValues={initialValues}
+                     onSubmit={onSubmit}
+                  >
+                     <Form className='avatar__form avatar-form'>
+                        <Field
+                           className='avatar-form__file'
+                           type='file'
+                           accept='.jpg, .jpeg, .png'
+                           name='avatar'
+                           id='avatarLoader'
+                           onChange={handleChange}
+                        />
+                        <label
+                           className='avatar-form__label'
+                           htmlFor="avatarLoader"
+                        >
+                           Изменить фото
+                        </label>
+                        {newImage && <Field
+                           type='submit'
+                           children='Загрузить'
+                           component={MyButton}
+                        />}
+                     </Form>
+                  </Formik>
                </div>
                <div className="profile-info__main main-info">
                   <div className="main-info__column">

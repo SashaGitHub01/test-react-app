@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import UserItem from "../lesson1/content/UsersPage/UserItem/UserItem";
+import UserItem from "../components/Content/UsersPage/UserItem/UserItem";
 import { follow, unfollow } from '../thunks/thunkCreator'
 
 let dispatchToProps = {

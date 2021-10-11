@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
-import Page from "./page/page";
-import Main from "./main/Main";
+import Page from "./Page/Page";
+import Main from "./Main/Main";
 import HeaderContainer from "../containers/HeaderContainer";
 import Loader from "./Loader/Loader";
 import { connect } from "react-redux";

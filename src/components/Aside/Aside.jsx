@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink, } from 'react-router-dom';
-
-import './aside.scss';
+import './Aside.scss';
 
 const Aside = ({ myId }) => {
    let nav = [

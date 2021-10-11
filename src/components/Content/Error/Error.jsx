@@ -1,5 +1,4 @@
-import ReactDOM from 'react-dom';
-import React, { Component } from "react";
+import React from "react";
 
 const Error = (props) => {
    return (
