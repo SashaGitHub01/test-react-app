@@ -2,12 +2,15 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useRouteMatch } from "react-router";
 
-import ProfileInfo from "../components/Content/Profile/ProfileInfo/ProfileInfo";
-import { getUserProfile, getStatus, updateStatus, uploadAvatar } from "../thunks/thunkCreator";
+import Profile from "../components/Content/Profile/Profile";
+import {
+   getUserProfile, getStatus, updateStatus,
+   uploadAvatar, uploadProfileData
+} from "../thunks/thunkCreator";
 import withAuthRedirect from "../HOC/withAuthRedirect";
 import { compose } from "redux";
 
-const ProfileInfoContainer = ({ getUserProfile, getStatus, profile, ...other }) => {
+const ProfileContainer = ({ getUserProfile, getStatus, profile, ...other }) => {
    let match = useRouteMatch();
 
    useEffect(() => {
@@ -16,7 +19,7 @@ const ProfileInfoContainer = ({ getUserProfile, getStatus, profile, ...other }) 
    }, [match.params.userId, profile]);
 
    return (
-      <ProfileInfo {...other} profile={profile} />
+      <Profile {...other} profile={profile} />
    )
 }
 
@@ -24,6 +27,7 @@ let mapStateToProps = (state) => {
    return {
       profile: state.profilePage.profile,
       status: state.profilePage.status,
+      myId: state.auth.userId,
    }
 }
 
@@ -32,6 +36,7 @@ let dispatchToProps = {
    getStatus,
    updateStatus,
    uploadAvatar,
+   uploadProfileData,
 }
 
 export default compose(
@@ -40,4 +45,4 @@ export default compose(
       dispatchToProps,
    ),
    withAuthRedirect
-)(ProfileInfoContainer);
+)(ProfileContainer);

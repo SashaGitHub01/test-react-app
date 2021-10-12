@@ -8,11 +8,11 @@ import { connect } from "react-redux";
 import { initializeApp } from "../thunks/thunkCreator";
 
 
-const App = ({ isInitialized, initializeApp }) => {
+const App = ({ isInitialized, initializeApp, profile }) => {
 
    useEffect(() => {
       initializeApp();
-   }, []);
+   }, [profile]);
 
    if (!isInitialized) return <Loader />
 
@@ -27,6 +27,7 @@ const App = ({ isInitialized, initializeApp }) => {
 const mapStateToProps = (state) => {
    return {
       isInitialized: state.app.initialized,
+      profile: state.profilePage.profile,
    }
 }
 

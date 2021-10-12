@@ -1,0 +1,95 @@
+.edit {
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   left: 0;
+   top: 0;
+   background-color: rgba(0, 0, 0, 0.5);
+   z-index: 5;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.edit__modal {
+   background-color: #fff;
+   min-width: 550px;
+}
+
+.edit__title {
+   font-size: 21px;
+   text-align: center;
+   font-weight: 500;
+   padding: 30px 0;
+   background-color: rgb(213, 253, 253);
+   position: relative;
+}
+
+.edit__title .fas {
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   cursor: pointer;
+}
+
+.edit__form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 25px 20px;
+   position: relative;
+}
+
+.edit-form__item {
+   display: flex;
+   align-items: center;
+   position: relative;
+   width: 100%;
+   margin-bottom: 15px;
+}
+
+.edit-form__item-textarea {
+   align-items: start;
+}
+
+.edit-form__item span {
+   line-height: 28px;
+   margin-right: 15px;
+}
+
+#jobCheckbox {
+   margin-right: 10px;
+}
+
+.edit-form__subtitle {
+   font-weight: 600;
+   font-size: 18px;
+   margin-bottom: 15px;
+   color: rgb(110, 110, 110);
+}
+
+.edit-contacts {
+   display: flex;
+   position: relative;
+   width: 100%;
+   margin-bottom: 20px;
+}
+.edit-contacts__column {
+   flex: 0 1 100px;
+   margin: 0px 0px -10px 0px;
+}
+.edit-contacts__name {
+   line-height: 28px;
+   padding: 0px 0px 10px 0px;
+}
+.edit-contacts__column-inp {
+   flex: 1 1 auto;
+   display: flex;
+   flex-direction: column;
+   margin: 0px 0px -10px 0px;
+}
+.edit-contacts__input {
+   display: flex;
+   padding: 0px 0px 10px 0px;
+}

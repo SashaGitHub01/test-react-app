@@ -25,6 +25,12 @@ class ProfileService {
 
       return response.data;
    }
+
+   static uploadProfileData = async (profile) => {
+      let response = await instanse.put(`/profile`, profile);
+
+      return response.data;
+   }
 }
 
 export default ProfileService;

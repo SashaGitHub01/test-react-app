@@ -125,7 +125,16 @@ export const initializeApp = () => {
 export const uploadAvatar = (image) => {
    return async (dispatch) => {
       let response = await ProfileService.uploadAvatar(image);
-      console.log(response)
       dispatch(setNewAvatar(response.data));
+   }
+}
+
+export const uploadProfileData = (profile) => {
+   return async (dispatch) => {
+      let response = await ProfileService.uploadProfileData(profile);
+
+      if (response.resultCode === 0) {
+         dispatch(setUserProfile(profile))
+      }
    }
 }

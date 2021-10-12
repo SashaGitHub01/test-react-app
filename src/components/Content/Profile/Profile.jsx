@@ -1,16 +1,19 @@
 import React from "react";
 import './Profile.scss';
 
-import ProfileInfoContainer from "../../../containers/ProfileInfoContainer";
 import MyPostsContainer from '../../../containers/MyPostsContainer';
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
-const Profile = () => {
+const Profile = ({ profile, myId, ...other }) => {
+
+   let isOwner = profile?.userId === myId;
+
    return (
       <div className="profile">
          <div className="profile__row">
-            <ProfileInfoContainer />
-            <MyPostsContainer />
+            <ProfileInfo {...other} profile={profile} isOwner={isOwner} />
+            <MyPostsContainer profile={profile} isOwner={isOwner} />
          </div>
       </div>
    )

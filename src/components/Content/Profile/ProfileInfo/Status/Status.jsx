@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import MyInput from '../../../../../UI/MyInput/MyInput';
 import MyButton from '../../../../../UI/MyButton/MyButton';
 
-const Status = ({ status, updateStatus }) => {
+const Status = ({ status, updateStatus, isOwner }) => {
    let [editMode, setEditMode] = useState(false);
 
    const onSubmit = (values) => {
@@ -23,10 +23,18 @@ const Status = ({ status, updateStatus }) => {
       status: Yup.string().max(200, 'Статус не должен содержать более 200 символов!')
    })
 
+   const handleStatusClick = () => {
+      if (!isOwner) return;
+
+      setEditMode(true);
+   }
+
    return (
       <div className="main-info__status profile-status">
-         <span onClick={() => setEditMode(true)}>
-            {status || 'Добавить статус'}
+         <span onClick={handleStatusClick}>
+            {isOwner
+               ? (status || 'добавить статус')
+               : ''}
          </span>
          {
             editMode &&
