@@ -10,12 +10,12 @@ const getPaginationArray = (currentPage, totalCount, limit) => {
       pagesArray = [currentPage, +currentPage + 1, +currentPage + 2, +currentPage + 3, +currentPage + 4, '...', +pagesCount];
    }
 
-   if (currentPage > 1) {
+   if (currentPage === 2) {
       pagesArray = [];
-      pagesArray = [currentPage - 1, currentPage, +currentPage + 1, +currentPage + 2, +currentPage + 3, '...', +pagesCount]
+      pagesArray = [currentPage - 1, currentPage, +currentPage + 1, +currentPage + 2, +currentPage + 3, '...', +pagesCount];
    }
 
-   if (currentPage > 4) {
+   if (currentPage > 2) {
       pagesArray = [];
       pagesArray = [1, '...', currentPage - 1, currentPage, +currentPage + 1, +currentPage + 2, +currentPage + 3, '...', +pagesCount]
    }

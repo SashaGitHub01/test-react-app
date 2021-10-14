@@ -5,7 +5,7 @@ import getPaginationArray from '../../utils/getPaginationArray';
 
 const Pagination = ({ totalCount, limit, currentPage, setCurrentPage }) => {
 
-   let pagesArray = getPaginationArray(currentPage, totalCount, limit);
+   const pagesArray = getPaginationArray(currentPage, totalCount, limit);
 
    const handleSetPage = (e) => {
       if (isNaN(e.target.dataset.page)) return;

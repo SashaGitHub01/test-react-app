@@ -1,0 +1,50 @@
+.errors-box {
+   position: fixed;
+   text-align: center;
+   top: 0px;
+   left: 50%;
+   transform: translateX(-50%);
+   z-index: 10;
+}
+.error-note {
+   position: relative;
+   text-align: center;
+   padding: 15px;
+   top: 0px;
+   left: 50%;
+   transform: translateX(-50%);
+   border: 2px solid rgb(196, 57, 57);
+   border-radius: 10px;
+   background-color: rgb(255, 238, 238);
+   z-index: 10;
+   margin-bottom: 7px;
+}
+.error-note__content {
+}
+.error-note__body {
+   font-size: 12px;
+}
+
+.error-note-appear {
+   opacity: 0;
+}
+.error-note-appear-active {
+   opacity: 1;
+   transition: opacity 500ms;
+}
+
+.error-note-enter {
+   opacity: 0;
+}
+.error-note-enter-active {
+   opacity: 1;
+   transition: opacity 500ms;
+}
+
+.error-note-exit {
+   opacity: 1;
+}
+.error-note-exit-active {
+   opacity: 0;
+   transition: opacity 1000ms;
+}

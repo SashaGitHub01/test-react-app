@@ -2,6 +2,7 @@ import {
    ADD_POST, ADD_MESSAGE, SET_USER_PROFILE, SET_NEW_AVATAR,
    TOGGLE_FOLLOW, SET_USERS, SET_TOTAL_COUNT, SET_CURRENT_PAGE, TOGGLE_IS_LOADING,
    SET_CURRENT_PROFILE, SET_AUTH_DATA, TOGGLE_iS_FOLLOWING, SET_STATUS, SET_INITIALIZED,
+   SET_GLOBAL_ERROR, REMOVE_GLOBAL_ERROR,
 } from "../constants/constants";
 
 export const addPost = (postText) => (
@@ -59,4 +60,12 @@ export const setInitialized = () => (
 
 export const setNewAvatar = (photos) => (
    { type: SET_NEW_AVATAR, photos }
+);
+
+export const setGlobalError = (error, id) => (
+   { type: SET_GLOBAL_ERROR, errorData: { error, id } }
+);
+
+export const removeGlobalError = (removeId) => (
+   { type: REMOVE_GLOBAL_ERROR, removeId }
 );

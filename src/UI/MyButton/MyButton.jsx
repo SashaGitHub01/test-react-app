@@ -7,6 +7,7 @@ const MyButton = ({ children, className, disabled, field, form, ...other }) => {
          className={className
             ? 'my-button ' + className
             : 'my-button'}
+         disabled={disabled}
       >
          {children}
       </button>

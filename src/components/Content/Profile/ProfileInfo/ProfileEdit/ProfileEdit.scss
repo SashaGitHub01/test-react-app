@@ -41,12 +41,64 @@
    position: relative;
 }
 
-.edit-form__item {
+.edit-form-error-m {
+   font-size: 12px;
+   color: rgb(224, 62, 62);
+   line-height: 21px;
+   position: absolute;
+}
+
+.edit-form__main {
+}
+
+.edit-main {
    display: flex;
-   align-items: center;
    position: relative;
    width: 100%;
    margin-bottom: 15px;
+}
+.edit-main__column {
+   flex: 0 1 100px;
+   display: flex;
+   flex-direction: column;
+   margin: 0px 0px -25px 0px;
+}
+.edit-main__name {
+   line-height: 28px;
+   padding: 0px 0px 25px 0px;
+}
+
+.edit-main__column-inp {
+   flex: 1 1 auto;
+   display: flex;
+   flex-direction: column;
+   margin: 0px 0px -25px 0px;
+}
+
+.edit-column-inp__item {
+   padding: 0px 0px 25px 0px;
+}
+.edit-column-inp__input {
+   display: flex;
+}
+
+.error-input {
+   border: 1px solid rgb(255, 49, 49);
+}
+
+.edit-form__item {
+   display: flex;
+   position: relative;
+   width: 100%;
+   margin-bottom: 15px;
+}
+
+.edit-form__item input[type="checkbox"] {
+   align-self: center;
+}
+
+.edit-item {
+   flex-direction: column;
 }
 
 .edit-form__item-textarea {
@@ -69,6 +121,12 @@
    color: rgb(110, 110, 110);
 }
 
+.edit-item__content {
+   position: relative;
+   display: flex;
+   width: 100%;
+}
+
 .edit-contacts {
    display: flex;
    position: relative;
@@ -77,19 +135,23 @@
 }
 .edit-contacts__column {
    flex: 0 1 100px;
-   margin: 0px 0px -10px 0px;
+   margin: 0px 0px -25px 0px;
 }
 .edit-contacts__name {
    line-height: 28px;
-   padding: 0px 0px 10px 0px;
+   padding: 0px 0px 25px 0px;
 }
 .edit-contacts__column-inp {
    flex: 1 1 auto;
    display: flex;
    flex-direction: column;
-   margin: 0px 0px -10px 0px;
+   margin: 0px 0px -25px 0px;
 }
+
+.edit-contacts__item {
+   padding: 0px 0px 25px 0px;
+}
+
 .edit-contacts__input {
    display: flex;
-   padding: 0px 0px 10px 0px;
 }

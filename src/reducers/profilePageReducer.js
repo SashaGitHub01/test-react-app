@@ -5,28 +5,7 @@ import {
 } from "../constants/constants";
 
 let initialState = {
-   posts: [
-      {
-         id: 1,
-         name: 'Jake Yip',
-         avatar: 'https://steamuserimages-a.akamaihd.net/ugc/793116473828215611/6B7BC238A031EE48EC9CDC44AC369EF30536F881/?imw=512&amp;imh=512&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=true',
-         body: 'Hello, I\'m Jake!'
-      },
-      {
-         id: 2,
-         name: 'Jake Yip',
-         avatar: 'https://steamuserimages-a.akamaihd.net/ugc/793116473828215611/6B7BC238A031EE48EC9CDC44AC369EF30536F881/?imw=512&amp;imh=512&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=true',
-         body: 'Hahahaha'
-      },
-
-      {
-         id: 3,
-         name: 'Jake Yip',
-         avatar: 'https://steamuserimages-a.akamaihd.net/ugc/793116473828215611/6B7BC238A031EE48EC9CDC44AC369EF30536F881/?imw=512&amp;imh=512&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=true',
-         body: 'Nice!!! lol...'
-      },
-
-   ],
+   posts: [],
    profile: null,
    status: '',
 };
@@ -39,8 +18,8 @@ export const profilePageReducer = (state = initialState, {
       case ADD_POST:
          let newPost = {
             id: '5' + Date.now(),
-            name: 'Jake Yip',
-            avatar: 'https://steamuserimages-a.akamaihd.net/ugc/793116473828215611/6B7BC238A031EE48EC9CDC44AC369EF30536F881/?imw=512&amp;imh=512&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=true',
+            name: state.profile.fullName,
+            avatar: state.profile.photos.small,
             body: postText,
          }
 

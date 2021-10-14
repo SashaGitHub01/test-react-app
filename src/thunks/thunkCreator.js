@@ -6,6 +6,7 @@ import {
    toggleFollow, toggleIsFollowing, setUserProfile,
    setUsers, setTotalCount, toggleIsLoading,
    setAuthData, setStatus, setInitialized, setNewAvatar,
+   setGlobalError, removeGlobalError,
 } from "../actions/actionCreator";
 
 
@@ -135,6 +136,16 @@ export const uploadProfileData = (profile) => {
 
       if (response.resultCode === 0) {
          dispatch(setUserProfile(profile))
+      } else {
+         return response.messages;
       }
+   }
+}
+
+export const handleError = (error, id) => {
+   return async (dispatch) => {
+      dispatch(setGlobalError(error, id));
+
+      setTimeout(() => dispatch(removeGlobalError(id)), 5000);
    }
 }
