@@ -27,15 +27,14 @@ let initialState = {
    ],
 };
 
-export const dialogsPageReducer = (state = initialState, { type, messageText }) => {
+export const dialogsPageReducer = (state = initialState, { type, payload }) => {
    switch (type) {
       case ADD_MESSAGE:
-         let newMessage = { id: 5 + Date.now(), body: messageText }
+         let newMessage = { id: 5 + Date.now(), body: payload }
 
          return {
             ...state,
             messages: [...state.messages, newMessage],
-            newMessageContent: '',
          }
 
       default:

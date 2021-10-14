@@ -5,7 +5,7 @@ let initialState = {
    globalErrors: [],
 }
 
-export const appReducer = (state = initialState, { type, errorData, removeId }) => {
+export const appReducer = (state = initialState, { type, payload }) => {
    switch (type) {
       case SET_INITIALIZED:
          return {
@@ -16,13 +16,13 @@ export const appReducer = (state = initialState, { type, errorData, removeId }) 
       case SET_GLOBAL_ERROR:
          return {
             ...state,
-            globalErrors: [...state.globalErrors, errorData],
+            globalErrors: [...state.globalErrors, payload],
          }
 
       case REMOVE_GLOBAL_ERROR:
          return {
             ...state,
-            globalErrors: state.globalErrors.filter(({ id }) => id !== removeId),
+            globalErrors: state.globalErrors.filter(({ id }) => id !== payload),
          }
 
       default:

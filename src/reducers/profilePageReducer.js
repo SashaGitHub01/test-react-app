@@ -10,37 +10,34 @@ let initialState = {
    status: '',
 };
 
-export const profilePageReducer = (state = initialState, {
-   type, postText, profile,
-   profileId, status, photos,
-}) => {
+export const profilePageReducer = (state = initialState, { type, payload }) => {
    switch (type) {
       case ADD_POST:
          let newPost = {
             id: '5' + Date.now(),
             name: state.profile.fullName,
             avatar: state.profile.photos.small,
-            body: postText,
+            body: payload,
          }
 
-         return { ...state, posts: [...state.posts, newPost], newPostContent: '' }
+         return { ...state, posts: [...state.posts, newPost] }
 
       case SET_USER_PROFILE:
          return {
             ...state,
-            profile: profile,
+            profile: payload,
          };
 
       case SET_CURRENT_PROFILE:
          return {
             ...state,
-            currentProfileId: profileId,
+            currentProfileId: payload,
          };
 
       case SET_STATUS:
          return {
             ...state,
-            status: status,
+            status: payload,
          };
 
       case SET_NEW_AVATAR:
@@ -49,7 +46,7 @@ export const profilePageReducer = (state = initialState, {
             profile: {
                ...state.profile,
                photos: {
-                  ...photos,
+                  ...payload,
                }
             },
          };

@@ -15,22 +15,13 @@ let initialState = {
 }
 
 
-export const usersPageReducer = (state = initialState, {
-   type,
-   userId,
-   newUsers,
-   count,
-   currentPage,
-   newLoadingStatus,
-   isFetching,
-   followId,
-}) => {
+export const usersPageReducer = (state = initialState, { type, payload }) => {
    switch (type) {
       case TOGGLE_FOLLOW:
          return {
             ...state,
             users: state.users.map((user) => {
-               return user.id === userId
+               return user.id === payload
                   ? { ...user, followed: !user.followed }
                   : user
             })
@@ -39,33 +30,33 @@ export const usersPageReducer = (state = initialState, {
       case SET_USERS:
          return {
             ...state,
-            users: [...newUsers],
+            users: [...payload],
          };
 
       case SET_TOTAL_COUNT:
          return {
             ...state,
-            totalCount: count,
+            totalCount: payload,
          }
 
       case SET_CURRENT_PAGE:
          return {
             ...state,
-            currentPage: currentPage,
+            currentPage: payload,
          };
 
       case TOGGLE_IS_LOADING:
          return {
             ...state,
-            isLoading: newLoadingStatus,
+            isLoading: payload,
          };
 
       case TOGGLE_iS_FOLLOWING:
          return {
             ...state,
-            followingProgress: isFetching
-               ? [...state.followingProgress, followId]
-               : state.followingProgress.filter((id) => id != followId),
+            followingProgress: payload
+               ? [...state.followingProgress, payload]
+               : state.followingProgress.filter((id) => id != payload),
          };
 
       default:

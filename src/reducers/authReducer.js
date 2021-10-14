@@ -8,15 +8,15 @@ const initialState = {
 }
 
 
-export const authReducer = (state = initialState, { type, userData }) => {
+export const authReducer = (state = initialState, { type, payload }) => {
    switch (type) {
       case SET_AUTH_DATA:
          return {
             ...state,
-            login: userData.login,
-            email: userData.email,
-            userId: userData.id,
-            isAuth: userData.isAuth,
+            login: payload.login,
+            email: payload.email,
+            userId: payload.id,
+            isAuth: payload.isAuth,
          }
 
       default:
