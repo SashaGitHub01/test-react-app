@@ -3,7 +3,7 @@ import './content.scss';
 
 import AppRoute from "../AppRoute/AppRoute";
 
-const Content = ({ state, dispatch }) => {
+const Content = () => {
    return (
       <section className="content">
          <AppRoute />

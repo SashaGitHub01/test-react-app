@@ -11,7 +11,7 @@ const UsersList = ({ users, isLoading }) => {
          ? <Loader />
          : <div className="userspage__list userspage-list">
             {
-               users.map(({ name, status, id, location, followed, photos }) => (
+               users && users.map(({ name, status, id, location, followed, photos }) => (
                   <UserItemContainer key={id}
                      id={id}
                      description={status}

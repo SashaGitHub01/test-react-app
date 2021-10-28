@@ -4,25 +4,50 @@ import './UsersPage.scss';
 import MyButton from '../../../UI/MyButton/MyButton';
 import MyInput from "../../../UI/MyInput/MyInput";
 import MyTitle from '../../../UI/MyTitle/MyTitle';
-import UsersListContainer from "../../../containers/UsersListContainer";
 import PaginationContainer from "../../../containers/PaginationContainer";
+import { Formik, Field, Form } from 'formik'
+import UsersList from "./UsersList/UsersList";
 
-const UsersPage = () => {
+const UsersPage = ({ users, isLoading, setQuery }) => {
+   const initialValues = {
+      term: '',
+   }
+
+   const onSubmit = (values) => {
+      setQuery(values.term);
+   }
+
    return (
       <div className="userspage">
          <div className="userspage__column">
             <div className="userspage__search-title">
                <MyTitle>Поиск</MyTitle>
             </div>
-            <form className="userspage__form userspage-form">
-               <MyInput placeholder='Введите имя' />
-               <MyButton className='userspage-form__button'>Найти</MyButton>
-            </form>
+            <Formik
+               initialValues={initialValues}
+               onSubmit={onSubmit}
+            >
+               {({ }) => (
+                  <Form className="userspage__form userspage-form">
+                     <Field
+                        placeholder='Введите имя'
+                        component={MyInput}
+                        name='term'
+                     />
+                     <Field
+                        type='submit'
+                        className='userspage-form__button'
+                        component={MyButton}
+                        children='Поиск'
+                     />
+                  </Form>
+               )}
+            </Formik>
             <div className="userspage__content">
                <div className="userspage__users-title">
                   <MyTitle>Пользователи</MyTitle>
                </div>
-               <UsersListContainer />
+               <UsersList users={users} isLoading={isLoading} />
                <PaginationContainer />
                <div className="userpage__showmore-btn">
                   <MyButton>Показать еще</MyButton>

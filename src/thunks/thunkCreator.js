@@ -49,6 +49,20 @@ export const getUsers = () => {
    }
 };
 
+export const getUsersWithTerm = (term) => {
+   return (dispatch) => {
+      dispatch(toggleIsLoading(true));
+
+      UsersService.getUsersWithTerm(term)
+         .then(data => {
+            dispatch(setUsers(data.items));
+            dispatch(setTotalCount(data.totalCount));
+         })
+         .then(() => dispatch(toggleIsLoading(false)));
+   }
+};
+
+
 export const getNewUsersPage = (page) => {
    return (dispatch) => {
       UsersService.getUsersPage(page)
